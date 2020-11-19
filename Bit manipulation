@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+//Compiler version g++ 6.3.0
+int getbit(int n,int pos){
+  int mask=n>>pos;
+  return (mask&1);
+}
+int setbit(int n,int pos){
+  int mask=1<<pos;
+  return n|mask;
+}
+int clearbit(int n,int pos){
+  int mask=~(1<<pos);
+  return(n&mask);
+}
+int tooglebit(int n,int pos){
+  int mask=1<<pos;
+  return (n^mask);
+}
+int updatebit(int n,int pos,int value){
+  int mask=~(1<<pos);
+  n=n&mask;
+  return (n|(value<<pos));
+}
+int main()
+{
+    cout<<getbit(7,1)<<endl;
+    cout<<setbit(6,1)<<endl;
+    cout<<clearbit(6,1)<<endl;
+    cout<<tooglebit(6,1)<<endl;
+    cout<<updatebit(6,2,0)<<endl;
+}
