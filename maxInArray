@@ -1,0 +1,16 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int max2(int a[],int n){
+  int max1=INT_MIN;
+  for(int i=0;i<n;i++){
+    max1=max(max1,a[i]);
+  }
+  cout<<"The maximum number:"<<max1;
+}
+int main()
+{
+    int a[]={2,8,3,4,6,7,5};
+    int n=sizeof(a)/sizeof(a[0]);
+    max2(a,n);
+}
