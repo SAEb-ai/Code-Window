@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+//Compiler version g++ 6.3.0
+
+int main()
+{
+    int a[3][3]={{1,2,3},{4,5,6},{7,8,9}};
+    int target=1;
+    bool found=false;
+    int i=0,j=2;
+    while(i<3&&j>=0){
+      if(a[i][j]==target){
+        found=true;break;
+      }
+      else if(a[i][j]>target){
+        j--;
+      }
+      else
+        i++;
+    }
+    if(found)
+      cout<<"Found";
+    else
+      cout<<"Not Found";
+}
