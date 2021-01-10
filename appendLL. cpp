@@ -1,0 +1,90 @@
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class node{
+  public:
+    int x;
+    node* next;
+    node(int n){
+      x=n;
+      next=NULL;
+    }
+};
+
+void insertAtTail(node* &head,int x){
+  node* temp=new node(x);
+  if(head==NULL){
+    head=temp;
+    return;
+  }
+  node* dhead=head; 
+  while(dhead->next!=NULL){
+    dhead=dhead->next;
+  }
+  dhead->next=temp;
+}
+
+void insertAtHead(node* &head,int x){
+  node* temp=new node(x);
+  temp->next=head;
+  head=temp;
+}
+
+int length(node *head){
+  node* tail=head;
+  int c=0;
+  while(tail!=NULL){
+    c++;
+    tail=tail->next;
+  }
+  return c;
+}
+
+node* appendLL(node* &head, int k){
+  node* newhead;
+  node* newtail;
+  node* tail=head;
+  int c=1;
+  int l=length(head);
+  while(tail->next!=NULL){
+    if(c==(l-k)){
+      newtail=tail;
+    }
+    if(c==l-k+1){
+      newhead=tail;
+    }
+    tail=tail->next;
+    c++;
+  }
+  newtail->next=NULL;
+  tail->next=head;
+  return newhead;
+}
+
+void display(node* &head){
+  node* dhead=head;
+  while(dhead!=NULL){
+    cout<<dhead->x<<" ";
+    dhead=dhead->next;
+  }
+  
+}
+
+
+int main()
+{
+    node* head=NULL;
+    insertAtTail(head,1);
+    insertAtTail(head,2);
+    insertAtTail(head,3);
+    display(head);
+    cout<<endl;
+    insertAtHead(head,5);
+    display(head);
+    cout<<endl;
+    node* newhead=appendLL(head,2);
+    display(newhead);
+    return 0;
+}
